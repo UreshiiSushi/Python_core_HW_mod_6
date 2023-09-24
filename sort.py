@@ -85,8 +85,6 @@ def move_file(file: Path, category: str, root_dir: Path) -> None:
         ext_list[category].append(new_path.suffix)
     if category == "archives":
         unpack_archive(target_dir, new_path)
-    
-        
 
 
 def sort_folder(path: Path) -> None:
@@ -120,4 +118,3 @@ def main() -> str:
 
 if __name__ == "__main__":
     print(main())
-    
