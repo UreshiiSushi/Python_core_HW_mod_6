@@ -78,14 +78,15 @@ def move_file(file: Path, category: str, root_dir: Path) -> None:
     if not target_dir.exists():
         target_dir.mkdir()
     new_path = target_dir.joinpath(normalize(file))
-    if not new_path.exists():
-        file.replace(new_path)
-        if new_path.name not in file_list[category]:
-            file_list[category].append(new_path.name)
-        if new_path.suffix not in ext_list[category]:
-            ext_list[category].append(new_path.suffix)
-        if category == "archives":
-            unpack_archive(target_dir, new_path)
+    file.replace(new_path)
+    if new_path.name not in file_list[category]:
+        file_list[category].append(new_path.name)
+    if new_path.suffix not in ext_list[category]:
+        ext_list[category].append(new_path.suffix)
+    if category == "archives":
+        unpack_archive(target_dir, new_path)
+    
+        
 
 
 def sort_folder(path: Path) -> None:
@@ -118,4 +119,5 @@ def main() -> str:
 
 
 if __name__ == "__main__":
-    main()
+    print(main())
+    
